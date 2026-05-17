@@ -1,0 +1,36 @@
+{
+  "manifest_version": 3,
+  "name": "MrBeastify Bilibili",
+  "version": "1.0.0",
+  "description": "将Bilibili视频封面替换为MrBeast的图片",
+  "permissions": ["storage"],
+  "host_permissions": ["*://*.bilibili.com/*"],
+  "content_scripts": [
+    {
+      "matches": ["*://*.bilibili.com/*"],
+      "js": ["content.js"],
+      "css": ["styles.css"],
+      "run_at": "document_idle"
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "images/1.png",
+      "48": "images/1.png",
+      "128": "images/1.png"
+    }
+  },
+  "icons": {
+    "16": "images/1.png",
+    "48": "images/1.png",
+    "128": "images/1.png"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": ["images/*.png"],
+      "matches": ["*://*.bilibili.com/*"],
+      "use_dynamic_url": false
+    }
+  ]
+}
