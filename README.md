@@ -1,7 +1,7 @@
 # MrBeastify-Bilibili
 将随机MrBeast图片覆盖到B站视频封面的浏览器扩展
 
-目前仅在Chrome浏览器内测试过，理论支持Firefox。
+在Linux Mint Cinnamon 22.3环境，Firefox 150.0.3和Chromium 148.0.7778.167上测试可用。
 
 来自TRAE AI，请不放心使用。
 
