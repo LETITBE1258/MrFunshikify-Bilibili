@@ -1,0 +1,2 @@
+# MrBeastify-Bilibili
+将随机MrBeast图片覆盖到B站视频封面的浏览器扩展
