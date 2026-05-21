@@ -1,5 +1,5 @@
 # MrBeastify-Bilibili
-将随机MrBeast图片覆盖到B站视频封面的浏览器扩展
+将随机泛式图片覆盖到B站视频封面的浏览器扩展
 
 在Linux Mint Cinnamon 22.3环境，Firefox 150.0.3和Chromium 148.0.7778.167上测试可用。
 
@@ -7,4 +7,4 @@
 
 效果图：
 <img width="1439" height="859" alt="2026-05-17 16-37-09屏幕截图" src="https://github.com/user-attachments/assets/210ef6c6-42c0-4e0d-9834-949fa16a3a54" />
-MrBeast的图片来源与模仿的项目：https://github.com/MagicJinn/MrBeastify-Youtube
+模仿的项目：[https://github.com/MagicJinn/MrBeastify-Youtube](https://github.com/Xiaolang47y/MrBeastify-Bilibili)
