@@ -16,15 +16,15 @@
   "action": {
     "default_popup": "popup.html",
     "default_icon": {
-      "16": "images/1.png",
-      "48": "images/1.png",
-      "128": "images/1.png"
+      "16": "images/icon.png",
+      "48": "images/icon.png",
+      "128": "images/icon.png"
     }
   },
   "icons": {
-    "16": "images/1.png",
-    "48": "images/1.png",
-    "128": "images/1.png"
+    "16": "images/icon.png",
+    "48": "images/icon.png",
+    "128": "images/icon.png"
   },
   "options_ui": {
     "page": "options.html",
