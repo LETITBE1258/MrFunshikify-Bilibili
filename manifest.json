@@ -26,6 +26,10 @@
     "48": "images/1.png",
     "128": "images/1.png"
   },
+  "options_ui": {
+    "page": "options.html",
+    "open_in_tab": true
+  },
   "web_accessible_resources": [
     {
       "resources": ["images/*.png"],

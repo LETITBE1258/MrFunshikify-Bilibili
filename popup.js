@@ -1,10 +1,17 @@
 document.addEventListener('DOMContentLoaded', () => {
   const toggleSwitch = document.getElementById('toggleSwitch');
   const statusText = document.getElementById('status');
+  const optionsLink = document.getElementById('optionsLink');
 
   chrome.storage.local.get(['enabled'], (result) => {
     toggleSwitch.checked = result.enabled !== false;
     updateStatus(toggleSwitch.checked);
+  });
+
+  // 打开设置页面 (options.html)
+  optionsLink.addEventListener('click', (e) => {
+    e.preventDefault();
+    chrome.runtime.openOptionsPage();
   });
 
   toggleSwitch.addEventListener('change', () => {

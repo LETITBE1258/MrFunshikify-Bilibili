@@ -3,6 +3,8 @@ const OVERLAY_CLASS = "mrbeastify-bilibili-overlay";
 const TOTAL_IMAGES = 66;
 
 let extensionIsDisabled = false;
+let appearanceProbability = 100;  // 0-100
+let stickerSize = 100;            // 50-200 (%)
 
 function getRandomImage() {
   const randomIndex = Math.floor(Math.random() * TOTAL_IMAGES) + 1;
@@ -14,15 +16,21 @@ function applyOverlay(thumbnailElement) {
   if (thumbnailElement.classList.contains(OVERLAY_CLASS)) return;
   if (thumbnailElement.querySelector(`.${OVERLAY_CLASS}`)) return;
 
+  // 概率检查
+  if (Math.random() * 100 >= appearanceProbability) return;
+
   const mrbeastImage = getRandomImage();
   console.log(`[MrFunshikify] 应用图片: ${mrbeastImage}`);
 
   thumbnailElement.classList.add(OVERLAY_CLASS);
-  
+
   if (getComputedStyle(thumbnailElement).position === 'static') {
     thumbnailElement.style.position = 'relative';
   }
   thumbnailElement.style.overflow = 'hidden';
+
+  // Sticker Size: 100% -> contain; else use percentage
+  const bgSize = stickerSize === 100 ? 'contain' : `${stickerSize}%`;
 
   const overlayDiv = document.createElement('div');
   overlayDiv.className = OVERLAY_CLASS;
@@ -33,7 +41,7 @@ function applyOverlay(thumbnailElement) {
     width: 100% !important;
     height: 100% !important;
     background-image: url(${mrbeastImage}) !important;
-    background-size: contain !important;
+    background-size: ${bgSize} !important;
     background-position: center !important;
     background-repeat: no-repeat !important;
     z-index: 10 !important;
@@ -120,10 +128,19 @@ function init() {
   setInterval(applyOverlayToThumbnails, 1500);
 }
 
-chrome.storage.local.get(['enabled'], (result) => {
+// 读取所有设置
+chrome.storage.local.get(['enabled', 'probability', 'stickerSize'], (result) => {
   if (result.enabled !== undefined) {
     extensionIsDisabled = !result.enabled;
   }
+  if (result.probability !== undefined) {
+    appearanceProbability = result.probability;
+  }
+  if (result.stickerSize !== undefined) {
+    stickerSize = result.stickerSize;
+  }
+
+  console.log(`[MrFunshikify] 设置: probability=${appearanceProbability}%, stickerSize=${stickerSize}%`);
 
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', () => {
