@@ -15,6 +15,7 @@ function applyOverlay(thumbnailElement) {
   if (thumbnailElement.querySelector(`.${OVERLAY_CLASS}`)) return;
 
   const mrbeastImage = getRandomImage();
+  console.log(`[MrFunshikify] 应用图片: ${mrbeastImage}`);
 
   thumbnailElement.classList.add(OVERLAY_CLASS);
   
@@ -50,6 +51,8 @@ function findThumbnails() {
     ".recommend-item .cover",
     ".video-list .cover",
     ".feed-card .cover",
+    ".bili-dyn-card-video .bili-dyn-card-video__left",
+    ".bili-dyn-card-video .bili-dyn-card-video__cover",
     ".search-page .cover",
     ".rank-list .cover",
     ".channel-list .cover",
@@ -72,7 +75,7 @@ function findThumbnails() {
   }
 
   return allThumbnails.filter(thumbnail => {
-    return !thumbnail.classList.contains(OVERLAY_CLASS) && 
+    return !thumbnail.classList.contains(OVERLAY_CLASS) &&
            !thumbnail.querySelector(`.${OVERLAY_CLASS}`);
   });
 }
@@ -81,7 +84,10 @@ function applyOverlayToThumbnails() {
   if (extensionIsDisabled) return;
 
   const thumbnails = findThumbnails();
+  console.log(`[MrFunshikify] 找到 ${thumbnails.length} 个封面`);
   thumbnails.forEach(thumbnail => {
+    const imgUrl = getRandomImage();
+    console.log(`[MrFunshikify] 应用: ${imgUrl}`);
     applyOverlay(thumbnail);
   });
 }
