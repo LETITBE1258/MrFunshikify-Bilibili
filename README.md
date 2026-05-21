@@ -9,4 +9,6 @@ CC修改，请不放心使用。
 
 效果图：
 <img src="https://cf780465.letitbe-cloudflare-imgbed.pages.dev/file/1779392200093_Clipboard_-_2026-05-22_05.35.14.png" />
+
+<img src="https://cf780465.letitbe-cloudflare-imgbed.pages.dev/file/1779395832687_1779395795026.jpg" />
 模仿的项目：[https://github.com/MagicJinn/MrBeastify-Youtube](https://github.com/Xiaolang47y/MrBeastify-Bilibili)
