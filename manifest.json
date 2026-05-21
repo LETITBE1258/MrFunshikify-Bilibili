@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
-  "name": "MrBeastify Bilibili",
+  "name": "MrFunshikify Bilibili",
   "version": "1.0.0",
-  "description": "将Bilibili视频封面替换为MrBeast的图片",
+  "description": "将Bilibili视频封面替换为泛式的图片",
   "permissions": ["storage"],
   "host_permissions": ["*://*.bilibili.com/*"],
   "content_scripts": [
