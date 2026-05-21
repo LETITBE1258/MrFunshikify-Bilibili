@@ -3,11 +3,16 @@
 
 在Linux Mint Cinnamon 22.3环境，Firefox 150.0.3和Chromium 148.0.7778.167上测试可用。
 
-🌟**暂时使用方法：** Download ZIP后解压，在 edge://extensions/ 中开启开发人员模式，加载解压缩的扩展，选择解压后的文件夹
 
-CC修改，请不放心使用。
 
-效果图：
+🌟**暂时使用方法：** 
+
+Download ZIP后解压，在 [edge://extensions/](edge://extensions/) 中开启开发人员模式，加载解压缩的扩展，选择解压后的文件夹
+
+> CC修改，插件更新中，请不放心使用。
+>
+
+### 效果图：
 
 <img src="https://cf780465.letitbe-cloudflare-imgbed.pages.dev/file/1779392200093_Clipboard_-_2026-05-22_05.35.14.png" width="800" />
 
