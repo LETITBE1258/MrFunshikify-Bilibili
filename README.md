@@ -7,7 +7,7 @@
 
 🌟**暂时使用方法：** 
 
-Download ZIP后解压，在 [edge://extensions/](edge://extensions/) 中开启开发人员模式，加载解压缩的扩展，选择解压后的文件夹
+Download ZIP后解压，在 `edge://extensions/` 中开启开发人员模式，加载解压缩的扩展，选择解压后的文件夹
 
 > CC修改，插件更新中，请不放心使用。
 >
