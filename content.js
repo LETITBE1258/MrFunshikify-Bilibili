@@ -1,6 +1,6 @@
 const IMAGES_PATH = "images/";
 const OVERLAY_CLASS = "mrbeastify-bilibili-overlay";
-const TOTAL_IMAGES = 62;
+const TOTAL_IMAGES = 66;
 
 let extensionIsDisabled = false;
 
