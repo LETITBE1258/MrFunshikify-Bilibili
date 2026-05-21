@@ -15,9 +15,13 @@ function applyOverlay(thumbnailElement) {
   if (!thumbnailElement) return;
   if (thumbnailElement.classList.contains(OVERLAY_CLASS)) return;
   if (thumbnailElement.querySelector(`.${OVERLAY_CLASS}`)) return;
+  if (thumbnailElement.dataset.mrbeastifyChecked === 'true') return;
 
-  // 概率检查
-  if (Math.random() * 100 >= appearanceProbability) return;
+  // 概率检查 — 没中的标记为已检，避免重复抽签
+  if (Math.random() * 100 >= appearanceProbability) {
+    thumbnailElement.dataset.mrbeastifyChecked = 'true';
+    return;
+  }
 
   const mrbeastImage = getRandomImage();
   console.log(`[MrFunshikify] 应用图片: ${mrbeastImage}`);
@@ -84,7 +88,8 @@ function findThumbnails() {
 
   return allThumbnails.filter(thumbnail => {
     return !thumbnail.classList.contains(OVERLAY_CLASS) &&
-           !thumbnail.querySelector(`.${OVERLAY_CLASS}`);
+           !thumbnail.querySelector(`.${OVERLAY_CLASS}`) &&
+           thumbnail.dataset.mrbeastifyChecked !== 'true';
   });
 }
 
