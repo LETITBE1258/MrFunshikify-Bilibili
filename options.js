@@ -48,14 +48,29 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  function sendSettingsToTabs() {
+    const data = {
+      action: 'updateSettings',
+      probability: parseInt(probSlider.value),
+      stickerSize: parseInt(sizeSlider.value)
+    };
+    chrome.tabs.query({ url: '*://*.bilibili.com/*' }, (tabs) => {
+      tabs.forEach(tab => {
+        chrome.tabs.sendMessage(tab.id, data).catch(() => {});
+      });
+    });
+  }
+
   probSlider.addEventListener('input', () => {
     updateLabels();
     saveSetting('probability', parseInt(probSlider.value));
+    sendSettingsToTabs();
   });
 
   sizeSlider.addEventListener('input', () => {
     updateLabels();
     saveSetting('stickerSize', parseInt(sizeSlider.value));
+    sendSettingsToTabs();
   });
 
   // 图片数量检测

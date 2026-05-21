@@ -161,5 +161,9 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
       });
       applyOverlayToThumbnails();
     }
+  } else if (request.action === 'updateSettings') {
+    if (request.probability !== undefined) appearanceProbability = request.probability;
+    if (request.stickerSize !== undefined) stickerSize = request.stickerSize;
+    console.log(`[MrFunshikify] 设置已更新: probability=${appearanceProbability}%, stickerSize=${stickerSize}%`);
   }
 });
