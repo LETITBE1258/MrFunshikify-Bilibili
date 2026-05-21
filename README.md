@@ -3,7 +3,7 @@
 
 在Linux Mint Cinnamon 22.3环境，Firefox 150.0.3和Chromium 148.0.7778.167上测试可用。
 
-来自TRAE AI，请不放心使用。
+CC修改，请不放心使用。
 
 效果图：
 <img src="https://cf780465.letitbe-cloudflare-imgbed.pages.dev/file/1779392200093_Clipboard_-_2026-05-22_05.35.14.png" />
