@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <meta charset="UTF-8">
   <style>
@@ -9,33 +10,39 @@
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
       margin: 0;
     }
+
     h1 {
       font-size: 16px;
       margin: 0 0 15px 0;
       color: #333;
       text-align: center;
     }
+
     .toggle-container {
       display: flex;
       align-items: center;
       justify-content: center;
       margin-bottom: 15px;
     }
+
     .toggle-label {
       margin-right: 10px;
       font-size: 14px;
       color: #555;
     }
+
     .toggle-switch {
       position: relative;
       width: 50px;
       height: 26px;
     }
+
     .toggle-switch input {
       opacity: 0;
       width: 0;
       height: 0;
     }
+
     .slider {
       position: absolute;
       cursor: pointer;
@@ -47,6 +54,7 @@
       transition: 0.3s;
       border-radius: 26px;
     }
+
     .slider:before {
       position: absolute;
       content: "";
@@ -58,18 +66,22 @@
       transition: 0.3s;
       border-radius: 50%;
     }
-    input:checked + .slider {
+
+    input:checked+.slider {
       background-color: #00a1d6;
     }
-    input:checked + .slider:before {
+
+    input:checked+.slider:before {
       transform: translateX(24px);
     }
+
     .status {
       text-align: center;
       font-size: 12px;
       color: #888;
       margin-bottom: 10px;
     }
+
     .options-link {
       display: block;
       text-align: center;
@@ -80,11 +92,13 @@
       border-radius: 6px;
       background: #f0f8fc;
     }
+
     .options-link:hover {
       background: #dff0f8;
     }
   </style>
 </head>
+
 <body>
   <h1>MrFunshikify Bilibili</h1>
   <div class="toggle-container">
@@ -95,7 +109,8 @@
     </label>
   </div>
   <div class="status" id="status">已启用</div>
-  <a class="options-link" id="optionsLink" href="#">设置 (Appearance Probability / Sticker Size)</a>
+  <a class="options-link" id="optionsLink" href="#">详细设置（出现概率/贴纸大小）</a>
   <script src="popup.js"></script>
 </body>
+
 </html>
