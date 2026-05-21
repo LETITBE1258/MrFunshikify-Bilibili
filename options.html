@@ -1,11 +1,17 @@
 ﻿<!DOCTYPE html>
 <html lang="zh-CN">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MrFunshikify 设置</title>
   <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
     body {
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
       background: #f5f5f5;
@@ -15,77 +21,179 @@
       justify-content: center;
       padding: 40px 20px;
     }
-    .container { max-width: 580px; width: 100%; }
+
+    .container {
+      max-width: 580px;
+      width: 100%;
+    }
+
     h1 {
-      font-size: 22px; margin-bottom: 24px;
-      display: flex; align-items: center; gap: 10px;
+      font-size: 22px;
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
     }
-    h1 img { width: 36px; height: 36px; border-radius: 8px; }
+
+    h1 img {
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+    }
+
     .card {
-      background: #fff; border-radius: 12px;
-      padding: 20px 24px; margin-bottom: 16px;
-      box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+      background: #fff;
+      border-radius: 12px;
+      padding: 20px 24px;
+      margin-bottom: 16px;
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
     }
+
     .card h2 {
-      font-size: 15px; margin-bottom: 16px;
-      color: #666; font-weight: 600;
+      font-size: 15px;
+      margin-bottom: 16px;
+      color: #666;
+      font-weight: 600;
     }
+
     .row {
-      display: flex; justify-content: space-between;
-      align-items: center; padding: 8px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 8px 0;
     }
-    .row + .row { border-top: 1px solid #f0f0f0; }
-    .label { font-size: 14px; }
-    .value { font-size: 14px; color: #888; }
+
+    .row+.row {
+      border-top: 1px solid #f0f0f0;
+    }
+
+    .label {
+      font-size: 14px;
+    }
+
+    .value {
+      font-size: 14px;
+      color: #888;
+    }
+
     .switch {
-      position: relative; width: 44px; height: 24px; flex-shrink: 0;
+      position: relative;
+      width: 44px;
+      height: 24px;
+      flex-shrink: 0;
     }
-    .switch input { opacity: 0; width: 0; height: 0; }
+
+    .switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
     .slider {
-      position: absolute; cursor: pointer; inset: 0;
-      background: #ccc; border-radius: 24px; transition: 0.25s;
+      position: absolute;
+      cursor: pointer;
+      inset: 0;
+      background: #ccc;
+      border-radius: 24px;
+      transition: 0.25s;
     }
+
     .slider::before {
-      content: ""; position: absolute;
-      height: 18px; width: 18px;
-      left: 3px; bottom: 3px;
-      background: #fff; border-radius: 50%; transition: 0.25s;
+      content: "";
+      position: absolute;
+      height: 18px;
+      width: 18px;
+      left: 3px;
+      bottom: 3px;
+      background: #fff;
+      border-radius: 50%;
+      transition: 0.25s;
     }
-    input:checked + .slider { background: #00a1d6; }
-    input:checked + .slider::before { transform: translateX(20px); }
-    .range-group { margin-bottom: 18px; }
-    .range-group:last-child { margin-bottom: 0; }
+
+    input:checked+.slider {
+      background: #00a1d6;
+    }
+
+    input:checked+.slider::before {
+      transform: translateX(20px);
+    }
+
+    .range-group {
+      margin-bottom: 18px;
+    }
+
+    .range-group:last-child {
+      margin-bottom: 0;
+    }
+
     .range-header {
-      display: flex; justify-content: space-between;
-      align-items: center; margin-bottom: 8px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
     }
-    .range-header .label { font-size: 14px; }
+
+    .range-header .label {
+      font-size: 14px;
+    }
+
     .range-header .val {
-      font-size: 14px; font-weight: 600;
-      color: #00a1d6; min-width: 48px; text-align: right;
+      font-size: 14px;
+      font-weight: 600;
+      color: #00a1d6;
+      min-width: 48px;
+      text-align: right;
     }
+
     input[type="range"] {
-      -webkit-appearance: none; width: 100%; height: 6px;
-      border-radius: 3px; background: #e0e0e0; outline: none;
+      -webkit-appearance: none;
+      width: 100%;
+      height: 6px;
+      border-radius: 3px;
+      background: #e0e0e0;
+      outline: none;
     }
+
     input[type="range"]::-webkit-slider-thumb {
-      -webkit-appearance: none; width: 20px; height: 20px;
-      border-radius: 50%; background: #00a1d6;
-      cursor: pointer; box-shadow: 0 1px 4px rgba(0,161,214,0.3);
+      -webkit-appearance: none;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: #00a1d6;
+      cursor: pointer;
+      box-shadow: 0 1px 4px rgba(0, 161, 214, 0.3);
     }
+
     .hint {
-      font-size: 12px; color: #aaa;
-      margin-top: 6px; line-height: 1.5;
+      font-size: 12px;
+      color: #aaa;
+      margin-top: 6px;
+      line-height: 1.5;
     }
+
     .stat-number {
-      font-size: 28px; font-weight: 700;
-      color: #00a1d6; text-align: center;
+      font-size: 28px;
+      font-weight: 700;
+      color: #00a1d6;
+      text-align: center;
       padding: 12px 0 4px;
     }
-    .stat-label { font-size: 12px; color: #999; text-align: center; }
-    .footer { text-align: center; font-size: 12px; color: #bbb; margin-top: 24px; }
+
+    .stat-label {
+      font-size: 12px;
+      color: #999;
+      text-align: center;
+    }
+
+    .footer {
+      text-align: center;
+      font-size: 12px;
+      color: #bbb;
+      margin-top: 24px;
+    }
   </style>
 </head>
+
 <body>
   <div class="container">
     <h1>
@@ -143,14 +251,17 @@
       <h2>关于</h2>
       <div class="row"><span class="label">版本</span><span class="value" id="version">--</span></div>
       <div class="row"><span class="label">图片总数</span><span class="value" id="totalImages">--</span></div>
-      <div class="row"><span class="label">扩展ID</span><span class="value" id="extId" style="font-size:12px;font-family:monospace">--</span></div>
+      <div class="row"><span class="label">扩展ID</span><span class="value" id="extId"
+          style="font-size:12px;font-family:monospace">--</span></div>
       <div class="row">
         <span class="label">项目地址</span>
-        <a href="https://github.com/LETITBE1258/MrFunshikify-Bilibili" target="_blank" class="value" style="color:#00a1d6;text-decoration:none">GitHub</a>
+        <a href="https://github.com/LETITBE1258/MrFunshikify-Bilibili" target="_blank" class="value"
+          style="color:#00a1d6;text-decoration:none">GitHub</a>
       </div>
       <div class="row">
         <span class="label">B站主页</span>
-        <a href="https://space.bilibili.com/87809529" target="_blank" class="value" style="color:#00a1d6;text-decoration:none">泛式</a>
+        <a href="https://space.bilibili.com/87809529" target="_blank" class="value"
+          style="color:#00a1d6;text-decoration:none">顺其自燃</a>
       </div>
     </div>
 
@@ -161,4 +272,5 @@
 
   <script src="options.js"></script>
 </body>
+
 </html>
