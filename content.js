@@ -167,18 +167,29 @@ function applyOverlayToThumbnails() {
   });
 }
 
+let pollIntervalId = null;
+const POLL_INTERVAL_MS = 5000;
+
 const observer = new MutationObserver((mutations) => {
-  let shouldProcess = false;
   for (const mutation of mutations) {
     if (mutation.addedNodes.length > 0) {
-      shouldProcess = true;
+      setTimeout(applyOverlayToThumbnails, 200);
       break;
     }
   }
-  if (shouldProcess) {
-    setTimeout(applyOverlayToThumbnails, 200);
-  }
 });
+
+function startPolling() {
+  if (pollIntervalId) return;
+  pollIntervalId = setInterval(applyOverlayToThumbnails, POLL_INTERVAL_MS);
+}
+
+function stopPolling() {
+  if (pollIntervalId) {
+    clearInterval(pollIntervalId);
+    pollIntervalId = null;
+  }
+}
 
 function init() {
   console.log('[MrBeastify Bilibili] 插件已加载 (PNG图层模式)');
@@ -192,7 +203,17 @@ function init() {
     });
   }
 
-  setInterval(applyOverlayToThumbnails, 1500);
+  startPolling();
+
+  // 页面不可见时暂停轮询，减少后台标签页的CPU浪费
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) {
+      stopPolling();
+    } else {
+      applyOverlayToThumbnails();
+      startPolling();
+    }
+  });
 }
 
 // 读取所有设置
