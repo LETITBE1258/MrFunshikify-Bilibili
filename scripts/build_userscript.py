@@ -1,12 +1,18 @@
 #!/usr/bin/env python3
 """Build a Greasy Fork userscript from the Chrome extension source.
 
-Usage: python scripts/build_userscript.py
+Usage:
+  python scripts/build_userscript.py              # normal build
+  python scripts/build_userscript.py --bump patch  # bump version + build
+  python scripts/build_userscript.py --bump minor  # bump version + build
+  python scripts/build_userscript.py --bump major  # bump version + build
+
 Output: dist/mrfunshikify.user.js
 """
 
 import json
 import os
+import re
 import sys
 from string import Template
 
@@ -34,6 +40,29 @@ def die(msg):
     sys.exit(1)
 
 
+def bump_version(version, part):
+    """Bump major, minor, or patch in a semver string."""
+    parts = list(map(int, version.split(".")))
+    if len(parts) < 3:
+        parts += [0] * (3 - len(parts))
+    idx = {"major": 0, "minor": 1, "patch": 2}.get(part)
+    if idx is None:
+        die(f"Invalid bump part: {part}. Use major/minor/patch.")
+    parts[idx] += 1
+    for i in range(idx + 1, 3):
+        parts[i] = 0
+    return ".".join(map(str, parts))
+
+
+# ── Parse args ─────────────────────────────────────────────────────────────
+
+BUMP_PART = None
+for arg in sys.argv[1:]:
+    if arg == "--bump":
+        continue  # handled below
+    if arg in ("major", "minor", "patch"):
+        BUMP_PART = arg
+
 # ── Phase 1: Parse inputs ─────────────────────────────────────────────────
 
 try:
@@ -44,6 +73,15 @@ except json.JSONDecodeError as e:
     die(f"manifest.json is not valid JSON: {e}")
 
 version = manifest.get("version", "0.0.0")
+
+if BUMP_PART:
+    new_version = bump_version(version, BUMP_PART)
+    manifest["version"] = new_version
+    with open(MANIFEST_JSON, "w", encoding="utf-8") as f:
+        json.dump(manifest, f, indent=2)
+        f.write("\n")
+    print(f"Bumped version: {version} -> {new_version}")
+    version = new_version
 
 try:
     content_js = read_text(CONTENT_JS)

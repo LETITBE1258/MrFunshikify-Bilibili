@@ -2,14 +2,24 @@
   "manifest_version": 3,
   "name": "MrFunshikify Bilibili",
   "version": "1.0.5",
-  "description": "将Bilibili视频封面替换为泛式的图片",
-  "permissions": ["storage"],
-  "host_permissions": ["*://*.bilibili.com/*"],
+  "description": "\u5c06Bilibili\u89c6\u9891\u5c01\u9762\u66ff\u6362\u4e3a\u6cdb\u5f0f\u7684\u56fe\u7247",
+  "permissions": [
+    "storage"
+  ],
+  "host_permissions": [
+    "*://*.bilibili.com/*"
+  ],
   "content_scripts": [
     {
-      "matches": ["*://*.bilibili.com/*"],
-      "js": ["content.js"],
-      "css": ["styles.css"],
+      "matches": [
+        "*://*.bilibili.com/*"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "css": [
+        "styles.css"
+      ],
       "run_at": "document_idle"
     }
   ],
@@ -32,8 +42,12 @@
   },
   "web_accessible_resources": [
     {
-      "resources": ["images/*.png"],
-      "matches": ["*://*.bilibili.com/*"],
+      "resources": [
+        "images/*.png"
+      ],
+      "matches": [
+        "*://*.bilibili.com/*"
+      ],
       "use_dynamic_url": false
     }
   ]
