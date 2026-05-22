@@ -5,6 +5,7 @@
 
 <br>
 <br>
+
 🌟**使用方法：(二选一)** 
 
 1.[Download ZIP](https://github.com/LETITBE1258/MrFunshikify-Bilibili/archive/refs/heads/main.zip) 后解压，在 `edge://extensions/` 中开启开发人员模式，加载解压缩的扩展，选择解压后的文件夹（每次更新需要重新下载安装包，但加载速度快）
