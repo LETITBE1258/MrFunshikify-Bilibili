@@ -15,7 +15,7 @@ function getRandomImage() {
 // element: 实际的时间戳元素；target: 容器内应在 overlay 之前的直接子元素
 function findBadgeInContainer(container) {
   // 策略1: 已知的 Bilibili 时间戳类名（直接子元素）
-  for (const sel of ['.bili-video-card__mask', '.duration', '.time']) {
+  for (const sel of ['.bili-video-card__mask', '.bili-dyn-card-video__cover__mask', '.duration', '.time']) {
     const el = container.querySelector(`:scope > ${sel}`);
     if (el) return { element: el, target: el };
   }
