@@ -1,4 +1,4 @@
-# MrFunshikify-Bilibili
+# MrFunshikify-Bilibili（切片Man模拟器）
 将随机泛式图片覆盖到B站视频封面的浏览器扩展
 
 在Linux Mint Cinnamon 22.3环境，Firefox 150.0.3和Chromium 148.0.7778.167上测试可用。
